@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobject.LoginPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginSteps {
 	
 	public WebDriver driver;
@@ -18,6 +20,7 @@ public class LoginSteps {
 	public void user_launch_the_browser() {
 		System.setProperty("webdriver.chrome.driver", "F:\\Chromedriver\\chromedriver.exe");
 		driver= new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    lp = new LoginPage(driver);
 	}
 
